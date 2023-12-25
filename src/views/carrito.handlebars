@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrito de Compras</title>
+</head>
+<body>
+  <h1>Carrito</h1>
+  <article>
+    <table role="grid">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each cart.products}}
+          <tr>
+            <td>{{this.product.title}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{this.product.price}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </article>
+</body>
+</html>

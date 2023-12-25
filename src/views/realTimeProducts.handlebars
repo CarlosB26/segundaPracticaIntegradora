@@ -1,0 +1,98 @@
+<table id="tabla-template" role="grid">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+        </tr>
+    </thead>
+    <tbody id="prods">
+
+    </tbody>
+</table>
+
+<h1>Agregar Producto</h1>
+<form id="productForm">
+    <label for="title">Nombre:</label>
+    <input type="text" id="title" name="title" required><br>
+
+    <label for="description">Descripción:</label>
+    <textarea id="description" name="description" required></textarea><br>
+
+    <label for="code">Código:</label>
+    <input type="text" id="code" name="code" required><br>
+
+    <label for="price">Precio:</label>
+    <input type="number" step="0.01" id="price" name="price" required><br>
+
+    <label for="stock">Stock:</label>
+    <input type="number" id="stock" name="stock" required><br>
+
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" required><br>
+
+    <label for="thumbnails">Imágenes:</label>
+    <input type="text" id="thumbnails" name="thumbnails" multiple accept="image/*"><br>
+
+    <button id="agregarBtn" >Agregar Producto</button>
+</form>
+<script>
+    document.getElementById("agregarBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    // Obtener los valores del formulario
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const code = document.getElementById("code").value; // Convertir a número entero
+    const price = parseFloat(document.getElementById("price").value); // Convertir a número de punto flotante
+    const stock = parseInt(document.getElementById("stock").value); // Convertir a número entero
+    const category = document.getElementById("category").value;
+    const thumbnails = document.getElementById("thumbnails").value;
+    // Crear un objeto de producto
+    const newProduct = {
+        title,
+        description,
+        code,
+        price,
+        status: true,
+        stock,
+        category,
+        thumbnails: thumbnails || [],
+    };
+
+    console.log(newProduct);
+
+    // Validar el objeto de producto
+    if (!newProduct.title || !newProduct.description || !newProduct.price || !newProduct.thumbnails || !newProduct.code || !newProduct.stock) {
+        console.error("Todos los campos son obligatorios");
+        return;
+    }
+
+    socket.emit('product-add', newProduct)
+
+});
+</script>
+
+
+<!-- Formulario para eliminar un producto por ID -->
+<h1>Eliminar Registro</h1>
+<form id="eliminarForm">
+    <label for="id">ID:</label>
+    <input type="text" id="idElim" name="id" required>
+    <button id="eliminarBtn">Eliminar</button>
+</form>
+<script>
+    document.getElementById("eliminarBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    const id = document.getElementById("idElim").value;
+    console.log(id);
+    // Enviar el emit con el ID codificado
+    socket.emit('product-delete', id)
+});
+</script>
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script src="js/script.js" type="application/javascript"></script>

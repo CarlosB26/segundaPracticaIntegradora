@@ -1,0 +1,41 @@
+<h1>Hola de nuevo , !Bienvenido a la aplicación de gestión de productos desde la base de datos !🛍️</h1>
+
+<h1>Lista de Productos</h1>
+<article>
+    <h1>{{user.first_name}}! Que bueno verte</h1>
+    <p><strong>Nombre:</strong> {{user.first_name}} {{user.last_name}}</p>
+    <p><strong>Correo:</strong> {{user.email}}</p>
+    <p><strong>Edad:</strong> {{user.age}}</p>
+    <p><strong>Rol:</strong> {{user.role}}</p>  
+</article>
+<article>
+  <table role= "grid">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Stock</th>
+    </tr>
+    {{#each payload}}
+      <tr>
+        <td>{{this._id}}</td>
+        <td>{{this.title}}</td>
+        <td>{{this.price}}</td>
+        <td>{{this.stock}}</td>
+        <td><a href="#" role="button"> + </a></td>
+    </tr>
+    {{/each}}
+</table>
+<p>Pagina Actual: {{page}}</p>
+
+<a href="{{prevLink}}" role="button" {{#unless hasPrevPage}}disabled{{/unless}}> < </a>
+
+<a href="{{nextLink}}" role="button" {{#unless hasNextPage}}disabled{{/unless}}> > </a>
+
+<footer>
+        <a href="/api/sessions/logout" role="button">Salir</a>
+</footer>
+
+</article>
+
+

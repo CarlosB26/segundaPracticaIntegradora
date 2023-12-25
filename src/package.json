@@ -1,0 +1,17 @@
+{
+  "name": "app.js",
+  "version": "1.0.0",
+  "description": "app.js usa get para mostrar los productos manejados por ProductManager",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon --ignore src/sessions ."
+  },
+  "keywords": [],
+  "author": "Carlos Bolaños",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^8.0.1"
+  }
+}

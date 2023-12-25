@@ -1,0 +1,55 @@
+[
+  {
+    "id": 20231025104744616,
+    "title": "Producto 1",
+    "description": "Descripción del producto 1",
+    "code": "P1001",
+    "price": 159.99,
+    "status": true,
+    "stock": 55,
+    "category": "musica",
+    "thumbnails": [
+      "imagen1.jpg",
+      "imagen2.jpg"
+    ]
+  },
+  {
+    "id": 20231025104842096,
+    "title": "Producto 2",
+    "description": "Descripción del producto 2",
+    "code": "P1001",
+    "price": 259.99,
+    "status": true,
+    "stock": 15,
+    "category": "electronica",
+    "thumbnails": [
+      "imagen1.jpg",
+      "imagen2.jpg"
+    ]
+  },
+  {
+    "id": 20231025104907056,
+    "title": "Producto 3",
+    "description": "Descripción del producto 3",
+    "code": "P1001",
+    "price": 29.99,
+    "status": true,
+    "stock": 50,
+    "category": "hogar",
+    "thumbnails": [
+      "imagen1.jpg",
+      "imagen2.jpg"
+    ]
+  },
+  {
+    "id": 20231106204022570,
+    "title": "Producto 4",
+    "description": "agragado desde app",
+    "code": "p89996",
+    "price": 152.5,
+    "status": true,
+    "stock": 54,
+    "category": "Musica",
+    "thumbnails": "imagen1.jpg, imagen2.jpg"
+  }
+]
